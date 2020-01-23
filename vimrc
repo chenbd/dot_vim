@@ -24,3 +24,18 @@ source ~/.vim/plugins.vim
 source ~/.vim/functions.vim
 " Auto commands.
 source ~/.vim/autocmds.vim
+
+" https://clang.llvm.org/docs/ClangFormat.html
+map <C-K> :py3f /home/chenbd/bin/clang-format/clang-format.py<cr>
+imap <C-K> <c-o>:py3f /home/chenbd/bin/clang-format/clang-format.py<cr>
+
+function FormatFile()
+  let l:lines="all"
+  py3f /home/chenbd/bin/clang-format/clang-format.py
+endfunction
+
+function! Formatonsave()
+    let l:formatdiff = 1
+    py3f /home/chenbd/bin/clang-format/clang-format.py
+endfunction
+autocmd BufWritePre *.c,*.h,*.cc,*.cpp,*.hpp call Formatonsave()

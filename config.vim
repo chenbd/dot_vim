@@ -79,6 +79,7 @@ set switchbuf=useopen  " Switch to an existing buffer if one exists
 set tabstop=4
 set backspace=indent,eol,start " Delete everything with backspace
 set shiftwidth=4 " Tabs under smart indent
+set softtabstop=4
 set shiftround
 set cindent
 set autoindent
